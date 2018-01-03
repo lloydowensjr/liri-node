@@ -10,6 +10,24 @@ var request = require("request");
 var fs = require('fs');
 
 
+switch (userInput) {
+    case "my-tweets":
+        showTweets();
+        break;
+
+    case "spotify-this-song":
+        spotifySong(userChoice);
+        break;
+
+    case "movie-this":
+        movieThis(userChoice);
+        break;
+
+    case "do-what-it-says":
+        doCommand();
+        break;
+};
+
 
 
 function showTweets() {
