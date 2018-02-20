@@ -1,14 +1,13 @@
-/*** At the top of the liri.js file, write the code you need to grab the data from keys.js.
-Then store the keys in a variable. fs stores to node. ***/
+
 
 var key = require("./keys.js");
 var fs = require('fs');
 
-/*** collecting user input and save to variable ***/
+
 var userInput = process.argv[2];
 var userInputMore = process.argv.slice(3).join(" ");
 
-/*** switch statement to cycle through user input selections ***/
+
 function liriInput(userInput, userInputMore) {
 	switch (userInput) {
 		case "my-tweets":
@@ -27,7 +26,7 @@ function liriInput(userInput, userInputMore) {
 			console.log("Not an available selection.")
 	}
 
-	/*** append data into the log file of what user searched ***/
+	
 	fs.appendFile("log.txt", userInput + " " + userInputMore + ` \n`, function (err) {
 		if (err) {
 			console.log(err);
@@ -35,7 +34,7 @@ function liriInput(userInput, userInputMore) {
 	});
 };
 
-/*** creating Twitter function communicate with Twitter API ***/
+
 function twitterCall() {
 	var Twitter = require('twitter');
 
@@ -59,7 +58,6 @@ function twitterCall() {
 	});
 };
 
-/*** creating Spotify function communication with Spotify API ***/
 function spotifyCall(userInputMore) {
 	var Spotify = require('node-spotify-api');
 
@@ -92,7 +90,7 @@ function spotifyCall(userInputMore) {
 	});
 };
 
-/*** creating OMDB Request function communicate with OMDB API ***/
+
 function omdbCall() {
 	var request = require('request');
 
